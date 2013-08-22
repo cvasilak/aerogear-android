@@ -176,7 +176,7 @@ public class AeroGearGCMPushRegistrar implements PushRegistrar {
                     gcm.unregister();
 
                     URL deviceRegistryURL = UrlUtils.appendToBaseURL(pushServerURI.toURL(), registryDeviceEndpoint);
-                    HttpRestProviderForPush provider = new HttpRestProviderForPush(deviceRegistryURL, TIMEOUT);
+                    HttpRestProviderForPush provider = httpProviderProvider.get(deviceRegistryURL, TIMEOUT);
                     provider.setPasswordAuthentication(config.getVariantID(), config.getSecret());
 
                     try {
