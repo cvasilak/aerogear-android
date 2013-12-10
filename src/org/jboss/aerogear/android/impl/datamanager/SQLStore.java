@@ -232,7 +232,7 @@ public class SQLStore<T> extends SQLiteOpenHelper implements Store<T> {
                 if (jsonValue.isJsonArray()){
                     JsonArray jsonArray = jsonValue.getAsJsonArray();
                     for (int index = 0; index < jsonArray.size(); index++) {
-                        saveElement(jsonArray.get(index).getAsJsonObject(), path + pathVar + propertyName + String.format("[%d]", index), id);
+                        saveElement(jsonArray.get(index), path + pathVar + propertyName + String.format("[%d]", index), id);
                     }
                 } else {
                     saveElement(jsonValue, path + pathVar + propertyName, id);
